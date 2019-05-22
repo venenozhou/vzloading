@@ -1,0 +1,247 @@
+@import "./var.scss";
+@import "../components/loading";
+.kd-loading{
+  background-color: rgba(0,0,0,0.9);
+  cursor: wait;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  margin-top: 0px;
+  left: 0px;
+  top: 0px;
+  .type{
+    text-align:center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    cursor: wait;
+    display: inline-block; 
+    vertical-align: middle; 
+  }
+  .type1 { 
+  
+    .line { 
+      width: 8px; 
+      position: absolute; 
+      border-radius: 5px; bottom: 20px; 
+      background: -webkit-gradient(linear, left top, left bottom, from(#1ee95d), to(#5714ce)); 
+      background: -webkit-linear-gradient(top, #1ee95d, #5714ce); 
+      background: linear-gradient(to bottom, #1ee95d, #5714ce); 
+    }
+    .line1 { 
+      left: 0;
+      -webkit-animation: line-grow 0.5s ease alternate infinite; 
+      animation: line-grow 0.5s ease alternate infinite; 
+    }
+    .line2 { 
+      left: 20px; 
+      -webkit-animation: line-grow 0.5s 0.2s ease alternate infinite; 
+      animation: line-grow 0.5s 0.2s ease alternate infinite; 
+    }
+    .line3 { 
+      left: 40px; 
+      -webkit-animation: line-grow 0.5s 0.4s ease alternate infinite; 
+      animation: line-grow 0.5s 0.4s ease alternate infinite; 
+    }
+    .text{
+      text-align: center;
+      width: 200px;
+      position: absolute;
+      left: 50%;
+      bottom: -20px;
+      color: #fff;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .type2{
+    .k-line {
+      display:inline-block;
+      width:10px;
+      height:15px;
+      border-radius:15px;
+      background-color:#4b9cdb
+    }
+    .k-line1-1 {
+      animation:k-loadingA 1.5s 0s infinite
+    }
+    .k-line1-2 {
+      animation:k-loadingA 1.5s .5s infinite
+    }
+    .k-line1-3 {
+      animation:k-loadingA 1.5s 1s infinite
+    }
+    .text{
+      text-align: center;
+      width: 200px;
+      position: absolute;
+      left: 50%;
+      bottom: -20px;
+      color: #fff;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .type3{
+    width: 0;
+    height: 0;
+    position: absolute;
+    text-align:center;
+  /* disable selection and cursor changes */
+    user-select: none;
+    cursor:default;
+    .text{
+      width: 200px;
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      left: -100px;
+      bottom: 0;
+      animation: text 2s infinite;
+    }
+    /* Set for the first layer vertical position */
+    .vertical{
+      position:absolute;
+      top: -1.84em;
+      left: -0.4em;
+      transform: rotate(90deg);
+    }
+
+    /* Set for the second layer horizontal position */
+    .horizontal{
+      position:absolute;
+      top:0em;
+      left:0em;
+      transform: rotate(0deg);
+    }
+
+    /* The next two classes do mirror for animation */
+    .circlesup{
+      position:absolute;
+      top: -4.7em;
+      right: 12.1em;
+    }
+
+    .circlesdwn{
+      position:absolute;
+      top:2.5em;
+      right:-13.5em;
+      transform: rotate(180deg);
+    }
+
+    /* Create a container for our circles, rotate it 45 degrees and set animation*/
+    .circle {
+      position: absolute;
+      width: 15em;
+      height: 15em;
+      transform: rotate(45deg);
+      animation: orbit 2s infinite;
+      z-index:5;
+      cursor: wait;
+    } 
+
+    /* Style's of our circles */
+    .circle:after {
+      content: '';
+      position: absolute;
+      width: 2em;
+      height: 2em;
+      border-radius: 100%;
+      background: #425BF1; /* Pick a color 1*/
+    }
+
+    .circle:nth-child(2) {
+      animation-delay: 100ms;
+      z-index:4;
+    }
+
+    .circle:nth-child(2):after  {
+      background: #426BF1; /* Pick a color 2*/
+      transform: scale(0.8,0.8);
+    }
+
+    .circle:nth-child(3) {
+      animation-delay: 225ms; 
+      z-index:3;
+    }
+
+    .circle:nth-child(3):after  {
+      background: #427BF1; /* Pick a color 3*/
+      transform: scale(0.6,0.6);
+    }
+
+    .circle:nth-child(4) {
+      animation-delay: 350ms; 
+      z-index:2;
+    }
+
+    .circle:nth-child(4):after  {
+      background: #428BF1; /* Pick a color 4*/
+      transform: scale(0.4,0.4);
+    }
+
+
+    .circle:nth-child(5) {
+      animation-delay: 475ms; 
+      z-index:1;
+    }
+
+    .circle:nth-child(5):after  {
+      background: #429BF1; /* Pick a color 5*/
+      transform: scale(0.2,0.2);
+    }
+
+  }
+}
+
+
+@keyframes k-loadingA {
+  0% {
+    height:15px
+  }
+  50% {
+    height:35px
+  }
+  100% {
+    height:15px
+  }
+}
+
+@keyframes line-grow {
+  0% {
+  height: 0;
+  }
+  100% {
+  height: 75%;
+  }
+}
+
+@keyframes orbit { 
+  0%		{ transform:rotate(45deg); } 
+  
+  5%		{ transform:rotate(45deg);
+      animation-timing-function: ease-out; } 
+
+  70% 	{ transform:rotate(405deg); 
+      animation-timing-function: ease-in; }
+
+  100%	{ transform:rotate(405deg); } 
+}
+
+
+@keyframes text {
+  0%		{ transform:scale(0.2,0.2);
+      animation-timing-function: ease-out; } 
+
+  50%		{ transform:scale(1,1); 
+      animation-timing-function: ease-out;  }
+
+  60%		{ transform:scale(1,1); 
+      animation-timing-function: ease-out;  }
+
+  100%	{ transform:scale(0.2,0.2);  } 
+}

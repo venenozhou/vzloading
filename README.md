@@ -27,17 +27,27 @@ npm run build
 ```
 
 ## 使用方式
-1.  调用方式
-`//开始loading`
-let myloading = this.$kdLoading.show({
-      type: 'type2', `//loading类型，不传的话默认type2`
-      target: document.querySelector('.loadingarea'), `//loading区域，不传默认全屏loading`
-      contant: 'loading...'`//加载中文字，默认为loading...`
-});
-`//结束loding`
-myloading.hide();
+1.  引入
+```
+//main.js
+  import kdLoading from '@kd-components/kd-loading';
+  import '@kd-components/kd-loading/theme/lib/light/index.css';
+  Vue.use(kdLoading);
+```
 
-2.  建议调用方式
+2.  调用方式
+```
+//开始loading
+let myloading = this.$kdLoading.show({
+      type: 'type2', //loading类型，不传的话默认type2
+      target: document.querySelector('.loadingarea'), //loading区域，不传默认全屏loading
+      contant: 'loading...'//加载中文字，默认为loading...
+});
+//结束loding
+myloading.hide();
+```
+3.  建议调用方式
+```
 由于加载动画未结束时再次调用可能会再增加一个loading遮罩层建议调用方式如下
 watch: {
       isloading (newVal) {
@@ -54,6 +64,8 @@ watch: {
 }
 然后通过控制isloading 的true或false来控制加载动画的显示隐藏。
 这种调用方式也可以方便请求接口函数写在vuex中的情况，isloading放到state中，监听isloading来判断是否启用loading。
+```
+
 ## 备注
 1. 现在只放了三种动效，以后还会持续增加。
 2. 关于调用方式的问题好像稍微有点繁琐，如果有什么好的建议，欢迎提出来
