@@ -1,6 +1,6 @@
 {
-  "name": "@kd-components/kd-loading",
-  "version": "1.0.0",
+  "name": "vzloading",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
